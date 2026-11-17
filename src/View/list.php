@@ -11,11 +11,11 @@
     <?php endif; ?>
 
     <!-- O formulário agora aponta para a action 'create' -->
-      <form method="POST" action="index.php" class="form-group">
+        <form method="POST" action="index.php?action=create" class="form-group">
         <input type="text" name="title" placeholder="O que precisa ser feito?" autocomplete="off">
-        <input type="text" name="descript" placeholder="Descrição Opcional" autocomplete="off">
+            <input type="text" name="description" placeholder="Descrição Opcional" autocomplete="off">
         <input type="date" name="due_date" placeholder="Data de Vencimento" autocomplete="off">
-        <input type="text" name="responsable" placeholder="Responsável" autocomplete="off">
+            <input type="text" name="responsible" placeholder="Responsável" autocomplete="off">
         <button type="submit">Adicionar</button>
     </form>
 
@@ -23,8 +23,8 @@
          <?php foreach ($tasks as $task): ?>
             <li class="<?php echo $task['done'] ? 'done' : ''; ?>">
                 <span><?php echo htmlspecialchars($task['title']); ?></span> 
-                 <?php if (!empty($task['discript'])): ?>
-                    <span> - <?php echo htmlspecialchars($task['discript']); ?></span>
+                                 <?php if (!empty($task['description'])): ?>
+                                        <span> - <?php echo htmlspecialchars($task['description']); ?></span>
                 <?php endif; ?>
                 <small>Vencimento: <?php echo htmlspecialchars($task['due_date']); ?> | Responsável: <?php echo htmlspecialchars($task['responsible']); ?></small>
                 
