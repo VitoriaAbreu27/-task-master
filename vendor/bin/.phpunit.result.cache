@@ -1,1 +1,1 @@
-{"version":2,"defects":[],"times":{"TaskPresenterTest::testIndexFormataTitulosParaMaiusculo":0.002}}
+{"version":2,"defects":{"ApiTest::testApiRetornaListaEmJson":7},"times":{"TaskPresenterTest::testIndexFormataTitulosParaMaiusculo":0.002,"TaskPresenterTest::testCreateSalvaResponsavelJuntoComOsDemaisDados":0.001,"TaskModelTest::testNaoPodeSalvarTarefaSemTitulo":0.003,"ApiTest::testApiRetornaListaEmJson":0.001}}

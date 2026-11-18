@@ -26,9 +26,9 @@ class TaskPresenter {
         }
     }
 
-    public function create($title, $description, $dueDate) {
+    public function create($title, $description, $dueDate, $responsible) {
         try {
-            $this->model->save($title, $description, $dueDate);
+            $this->model->save($title, $description, $dueDate, $responsible);
             header("Location: index.php");
         } catch (Exception $e) {
             $this->view->showError($e->getMessage());
