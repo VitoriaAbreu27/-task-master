@@ -14,14 +14,14 @@ class Task {
     }
 
     // Salva uma nova tarefa (agora com os campos do desafio!)
-    public function save($title, $descript, $dueDate, $responsible) {
-        if (empty(trim($title)) || empty(trim($dueDate)|| empty(trim($responsible)))) {
+    public function save($title, $description, $dueDate, $responsible) {
+        if (empty(trim($title)) || empty(trim($dueDate)) || empty(trim($responsible))) {
             throw new Exception("Título, Data e Responsável são obrigatórios.");
         }
        
-        $stmt = $this->pdo->prepare("INSERT INTO tasks (title, description, due_date, responsible) VALUES (:title, :descript, :due_date, :responsible)");
+        $stmt = $this->pdo->prepare("INSERT INTO tasks (title, description, due_date, responsible) VALUES (:title, :description, :due_date, :responsible)");
         $stmt->bindValue(':title', $title);
-        $stmt->bindValue(':descript', $descript);
+        $stmt->bindValue(':description', $description);
         $stmt->bindValue(':due_date', $dueDate);
         $stmt->bindValue(':responsible', $responsible);
         return $stmt->execute();
