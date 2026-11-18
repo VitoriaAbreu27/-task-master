@@ -18,7 +18,7 @@ class TaskPresenter {
                 $task['title'] = strtoupper($task['title']);
             }
            
-            // O Presenter manda a View exibir as tarefas [cite: 215]
+            // O Presenter manda a View exibir as tarefas
             $this->view->displayTasks($tasks);
         } catch (Exception $e) {
             // Em caso de erro, manda a View exibir o erro

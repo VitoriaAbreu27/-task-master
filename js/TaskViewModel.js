@@ -1,7 +1,7 @@
 // TaskViewModel.js - O cérebro do Front-end
 class TaskViewModel {
     constructor() {
-        this.tasks = []; // O "Estado" da aplicação (Model no lado do cliente)
+        this.tasks = []; 
         this.init();
     }
 
@@ -29,9 +29,18 @@ class TaskViewModel {
         const title = this.inputElement.value;
         if (!title) return alert("Digite algo!");
 
+        // Enviamos todos os 4 campos exigidos pelo Model/API
         await fetch('api.php?action=create', {
             method: 'POST',
-            body: JSON.stringify({ title: title, description: '', due_date: '' })
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                title: title, 
+                description: '', 
+                due_date: '2026-12-31', 
+                responsible: 'Vitoria' 
+            })
         });
 
         this.inputElement.value = '';
@@ -50,7 +59,7 @@ class TaskViewModel {
             const li = document.createElement('li');
             li.className = task.done ? 'done' : '';
             li.innerHTML = `
-                <span>${task.title}</span>
+                <span>${task.title} (Resp: ${task.responsible})</span>
                 <button onclick="vm.deleteTask(${task.id})">❌</button>
             `;
             this.listElement.appendChild(li);
